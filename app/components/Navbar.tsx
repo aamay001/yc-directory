@@ -13,7 +13,7 @@ const Navbar = async () => {
           <Image src="/logo.png" alt="logo" width={144} height={30} />
         </Link>
 
-        <div className="flex item-center gap-5">
+        <div className="flex item-center gap-5 --font-work-sans">
           {session && session?.user ? (
             <>
               <Link href="/startup/create">

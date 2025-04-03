@@ -6,12 +6,12 @@ interface UserPageProps {
   }
 }
 
-const Page = async (props: UserPageProps) => {
+const UserProfilePage = async (props: UserPageProps) => {
   const { id } = await props.params;
 
   return (
-    <div>User {id}</div>
+    <h1 className="heading">User {id}</h1>
   );
 }
 
-export default Page
+export default UserProfilePage

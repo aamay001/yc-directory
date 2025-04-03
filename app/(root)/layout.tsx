@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
-    <main className='--font-work-sans bg-gray-300 text-black h-screen'>
+    <main>
       <Navbar />
       {children}
     </main>
