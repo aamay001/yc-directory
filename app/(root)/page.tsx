@@ -1,4 +1,14 @@
-export default function Home() {
+import SearchForm from "@/components/SearchForm";
+
+interface HomePageProps {
+  searchParams: Promise<{ query ?: string }>
+}
+
+export default async function Home(
+  { searchParams } : HomePageProps
+) {
+  const query = (await searchParams).query;
+
   return (
     <div>
       <section className="pink_container">
@@ -9,6 +19,7 @@ export default function Home() {
         <p className="sub-heading !max-w-exl">
           Submit Ideas, Vote on Pitches, and Get Noticed in Vitural Components!
         </p>
+        <SearchForm query={query} />
       </section>
     </div>
   );
