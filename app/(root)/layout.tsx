@@ -1,9 +1,8 @@
-import React, { FunctionComponent} from 'react';
-import Navbar from '@/app/components/Navbar';
-
+import React, { FunctionComponent } from "react";
+import Navbar from "@/app/components/Navbar";
 
 interface LayoutProps {
-  readonly children: React.ReactNode,
+  readonly children: React.ReactNode;
 }
 
 const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
@@ -13,6 +12,6 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
       {children}
     </main>
   );
-}
+};
 
 export default Layout;
