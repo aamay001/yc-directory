@@ -1,23 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import { formatDate } from "@/lib/utils";
 
 export interface StartupCardType {
   _createdAt: Date;
-  views: number;
+  _id: number;
   author: {
     _id: number;
     name: string;
   };
-  _id: number;
+  category: string;
   description: string;
   image: string;
-  category: string;
   title: string;
+  views: number;
 }
 
 interface StartupCardProps {
@@ -25,7 +26,17 @@ interface StartupCardProps {
 }
 
 function StartupCard(props: StartupCardProps) {
-  const { _createdAt, views, author, _id, title, description, image, category } = props.post;
+  const { 
+    _createdAt, 
+    _id, 
+    author, 
+    category,
+    description, 
+    image, 
+    title, 
+    views, 
+  } = props.post;
+  
   return (
     <li className="startup-card group">
       <div className="flex-between">
