@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { formatDate } from "@/lib/utils";
 
-export interface StartupCardType {
+export interface StartupTypeCard {
   _createdAt: Date;
   _id: number;
   author: {
@@ -22,7 +22,7 @@ export interface StartupCardType {
 }
 
 interface StartupCardProps {
-  post: StartupCardType;
+  post: StartupTypeCard;
 }
 
 function StartupCard(props: StartupCardProps) {
@@ -65,7 +65,7 @@ function StartupCard(props: StartupCardProps) {
 
         <Link href={`/user/${author?._id}`}>
           <Image
-            src="https://placehold.co/600x400"
+            src="https://placehold.co/48x48"
             alt="placeholder"
             width={48}
             height={48}

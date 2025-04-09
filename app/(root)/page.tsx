@@ -1,5 +1,5 @@
 import SearchForm from "@/components/SearchForm";
-import StartupCard, { StartupCardType } from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 
 interface HomePageProps {
   searchParams: Promise<{ query?: string }>;
@@ -8,7 +8,7 @@ interface HomePageProps {
 export default async function Home({ searchParams }: HomePageProps) {
   const query = (await searchParams).query;
 
-  const posts: StartupCardType[] = [
+  const posts: StartupTypeCard[] = [
     {
       _createdAt: new Date(),
       views: 55,
@@ -39,12 +39,12 @@ export default async function Home({ searchParams }: HomePageProps) {
       </section>
       <section className="section_container">
         <p className="text-30-semibold">
-          {query ? `Search results for ${query}` : "All Startups"}
+          {query ? `Search results for "${query}"` : "All Startups"}
         </p>
 
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-            posts.map((post: StartupCardType) => {
+            posts.map((post: StartupTypeCard) => {
               return <StartupCard key={post?._id} post={post} />;
             })
           ) : (
