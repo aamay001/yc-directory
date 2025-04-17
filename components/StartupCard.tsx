@@ -41,7 +41,7 @@ function StartupCard(props: StartupCardProps) {
     <li className="startup-card group">
       <div className="flex-between">
         <p className="startup_card_date">
-          {formatDate(_createdAt.toDateString())}
+          {formatDate(_createdAt)}
         </p>
         <div className="flex gap-1.5">
           <EyeIcon className="size-6 text-primary" />
@@ -84,18 +84,18 @@ function StartupCard(props: StartupCardProps) {
           alt="placeholder" 
           className="startup-card_img" 
         />
-
-        <div className="flex-between gap-3 mt-5">
-          <Link href={`/?query=${category.toLowerCase()}`}>
-            <p className="text-16-medium">{category}</p>
-          </Link>
-          <Button className="startup-card_btn">
-            <Link href={`/startup/${_id}`}>
-              Details
-            </Link>
-          </Button>
-        </div>
       </Link>
+
+      <div className="flex-between gap-3 mt-5">
+        <Link href={`/?query=${category.toLowerCase()}`}>
+          <p className="text-16-medium">{category}</p>
+        </Link>
+        <Button className="startup-card_btn">
+          <Link href={`/startup/${_id}`}>
+            Details
+          </Link>
+        </Button>
+      </div>
     </li>
   );
 }
