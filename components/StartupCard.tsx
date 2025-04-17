@@ -6,20 +6,9 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { formatDate } from "@/lib/utils";
+import type { Startup, Author } from "@/sanity/types";
 
-export interface StartupTypeCard {
-  _createdAt: Date;
-  _id: number;
-  author: {
-    _id: number;
-    name: string;
-  };
-  category: string;
-  description: string;
-  image: string;
-  title: string;
-  views: number;
-}
+export type StartupTypeCard = Omit<Startup, "author"> & { author ?: Author }
 
 interface StartupCardProps {
   post: StartupTypeCard;
@@ -53,7 +42,7 @@ function StartupCard(props: StartupCardProps) {
         <div className="flex-1">
           <Link href={`/user/${author?._id}`}>
             <p className="text-16-medium line-clamp-1">
-              {author.name}
+              {author?.name}
             </p>
           </Link>
           <Link href={`/startup/${_id}`}>
@@ -87,7 +76,7 @@ function StartupCard(props: StartupCardProps) {
       </Link>
 
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query=${category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
         <Button className="startup-card_btn">
